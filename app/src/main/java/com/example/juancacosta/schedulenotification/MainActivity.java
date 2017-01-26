@@ -25,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent broadcast = PendingIntent.getBroadcast(this,100,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.SECOND, 15);
+        calendar.set(Calendar.HOUR_OF_DAY, 13);
+        calendar.set(Calendar.MINUTE,00);
+        calendar.add(Calendar.SECOND, 00);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),broadcast);
         } else {
-            alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,calendar.getTimeInMillis(),15,broadcast);
+            alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),broadcast);
         }
     }
 }

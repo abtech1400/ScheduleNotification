@@ -27,6 +27,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setContentText("New Notification From Demo App")
                 .setTicker("New Message Alert!")
                 .setSmallIcon(R.mipmap.ic_launcher)
+                .setAutoCancel(true)
                 .setContentIntent(pendingIntent).build();
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
