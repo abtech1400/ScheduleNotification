@@ -22,13 +22,13 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-
+        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Notification notification = builder.setContentTitle("Scheduled App Notification")
                 .setContentText("New Notification From Demo App")
                 .setTicker("New Message Alert!")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setAutoCancel(true)
-                .setContentIntent(pendingIntent).build();
+                .setContentIntent(pendingIntent).setSound(alarmSound).build();
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0,notification);
